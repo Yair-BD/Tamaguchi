@@ -1,5 +1,7 @@
 def animal():
     import os
+    from clear_1 import Clear
+
     class Animal:
 
         def __init__(self, name):
@@ -26,24 +28,31 @@ def animal():
 
         def __str__(self):
             return f"My name is {self.name} and i love u ^_^ \n" \
-                   f"my level of hunger is {self._hunger} \nof fun is {self._fun} ^_^ "
+                   f"my hunger is {self._hunger} \nand my fun is {self._fun} ^_^ "
 
     class Turtle(Animal):
 
-        def __init__(self, name, color, armor=0, home=0):
+        def __init__(self, name, color, armor=0, home=[]):
             Animal.__init__(self, name)
             self.t_color = color
             self.p_armor = armor
             self.e_home = home
 
-        def buy(self):
+        def gifting(self):
             gift = input("What do you give mee ? \n")
-            self.e_home += gift
-            return "Ho i'm preshiat that"
+            self.e_home.append(gift)
+            self._fun += 1
+            return print("Ho i'm appreciate that :)")
 
         def eat(self):
             print("Ho good hasa for a good filling")
             return super(Turtle, self).eat()
+
+        def __str__(self):
+            if self.e_home == "":
+                return super(Turtle, self).__str__()
+            else:
+                return super(Turtle, self).__str__() + f"\nand i am happy with the home tools you gave me :{', '.join(self.e_home)}"
 
     class Dog(Animal):
 
@@ -57,7 +66,7 @@ def animal():
 
         def go_for_a_walk(self):
             self._fun += 3
-            print(f"Waff Waff !! My fun is rising, and its: {self._fun}")
+            print(f"Waff Waff !! My fun is rising")
 
     def main():
         def create():
@@ -69,6 +78,8 @@ def animal():
             elif new_animal == "turtle":
                 new_name = Turtle(new_name.capitalize(), new_color.capitalize())
             return f"{new_name} created successfully"
+
+
 
         fluppy = Dog("Fluppy", "Brown")
         turty = Turtle("Turty", "Green")
@@ -86,10 +97,11 @@ def animal():
                                f" for {turty.name} press {turty.name[0].lower()} \n ").lower().strip()
                 if choose == 'f':
                     while doing != 'c':
-                        cls()
+                        Clear()
                         doing = input("For play press 'p'\nFeed your cut press 'e'"
                                       "\nGo for a walk press 'w'\nGo to toilet press press 'p'"
                                       "\nFor status press 't'\nTo change pet press 'c'").lower().strip()
+                        Clear()
                         if doing == "p":
                             fluppy.play()
                         elif doing == "e":
@@ -100,14 +112,20 @@ def animal():
                             fluppy.go_for_a_walk()
                         elif doing == 'p':
                             fluppy.go_to_toilet()
+
                 elif choose == 't':
                     while doing != 'c':
-                        doing = input("For play press 'p'\nFeed your cut press 'e'\nGo to toilet press press 'p'"
+                        Clear()
+                        doing = input(f"For play press 'p'\nFeed your cut press 'e'"
+                                      f"\nGiving for {turty.name} a home tool press 'g' \nGo to toilet press press 'p'"
                                       "\nFor status press 't'\nTo change pet press 'c'").lower().strip()
+                        Clear()
                         if doing == "p":
                             turty.play()
                         elif doing == "e":
                             turty.eat()
+                        elif doing == "g":
+                            turty.gifting()
                         elif doing == 't':
                             print(turty)
                         elif doing == 'p':

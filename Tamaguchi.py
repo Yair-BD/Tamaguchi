@@ -52,7 +52,8 @@ def animal():
             if self.e_home == "":
                 return super(Turtle, self).__str__()
             else:
-                return super(Turtle, self).__str__() + f"\nand i am happy with the home tools you gave me :{', '.join(self.e_home)}"
+                return super(Turtle,
+                             self).__str__() + f"\nand i am happy with the home tools you gave me :{', '.join(self.e_home)}"
 
     class Dog(Animal):
 
@@ -78,8 +79,6 @@ def animal():
             elif new_animal == "turtle":
                 new_name = Turtle(new_name.capitalize(), new_color.capitalize())
             return f"{new_name} created successfully"
-
-
 
         fluppy = Dog("Fluppy", "Brown")
         turty = Turtle("Turty", "Green")

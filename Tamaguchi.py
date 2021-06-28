@@ -1,6 +1,7 @@
 def animal():
     import os
     from clear_1 import Clear
+    from objects import *
 
     class Animal:
 
@@ -70,26 +71,15 @@ def animal():
             print(f"Waff Waff !! My fun is rising")
 
     def main():
-        def create():
-            new_animal = input("Dog or Turtle ??\n").lower()
-            new_name = input("What his name ??\n").lower()
-            new_color = input("Which color ??\n").lower()
-            if new_animal == "dog":
-                new_name = Dog(new_name.capitalize(), new_color.capitalize())
-            elif new_animal == "turtle":
-                new_name = Turtle(new_name.capitalize(), new_color.capitalize())
-            return f"{new_name} created successfully"
+
+        d_animal = {}
+        l_animal = ["d1"]
 
         fluppy = Dog("Fluppy", "Brown")
         turty = Turtle("Turty", "Green")
-        cls = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
         running = True
         while running:
             request = 1
-            # if request == 0:
-            # doing = input("To create a pat press c")
-            # if doing == "c":
-            # print(create())
             doing = ""
             if request > 0:
                 choose = input(f"Choose pet for {fluppy.name} press {fluppy.name[0].lower()}"

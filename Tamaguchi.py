@@ -37,7 +37,7 @@ class Turtle(Animal):
     def __init__(self, name, color, armor=0, home=[]):
         Animal.__init__(self, name)
         self.t_color = color
-        self.p = "dog"
+        self.p = "turtle"
         self.p_armor = armor
         self.e_home = home
 
@@ -104,9 +104,9 @@ def main():
             request_to_create += 1
             open_create = False
         elif not open_create:
-            for nam in system_names:
-                for letter in all_letters:
-                    print(f"for {nam.name} press {letter}")
+            ziping_names_letters = zip(system_names, all_letters)
+            for nam, letter in ziping_names_letters:
+                print(f"for {nam.name} press {letter}")
             choose = input("To create another pet press '+'").lower().strip()
             Clear()
             if choose == "+":
@@ -115,7 +115,7 @@ def main():
             elif choose in all_letters:
                 final_animal = system_names[all_letters.index(choose)]
                 print(final_animal)
-                print(all_letters.index(choose))
+                # print(all_letters.index(choose))
                 if final_animal.p == "dog":
                     while doing != 'c':
                         Clear()

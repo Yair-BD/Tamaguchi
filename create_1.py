@@ -1,5 +1,0 @@
-from Tamaguchi import *
-
-
-
-
